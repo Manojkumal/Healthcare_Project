@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health Spending Explorer</title>
+<script>/* plotly.js 2.35.2, inserted by the notebook from assets/ so the page works offline */
+__PLOTLY_JS__</script>
+<script>/* world map shapes (assets/world_110m.json), so the map does not download them */
+window.PlotlyGeoAssets = window.PlotlyGeoAssets || {};
+(PlotlyGeoAssets.topojson = PlotlyGeoAssets.topojson || {}).world_110m = __WORLD_TOPOJSON__;</script>
+<style>
+:root{--page:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--grid:#e1e0d9;
+ --axis:#c3c2b7;--border:rgba(11,11,11,.10);--s1:#2a78d6;--s2:#eb6834;--accent:#2a78d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;
+ --ink2:#c3c2b7;--muted:#898781;--grid:#2c2c2a;--axis:#383835;--border:rgba(255,255,255,.10);--s1:#3987e5;--s2:#d95926;--accent:#3987e5}}
+:root[data-theme="dark"]{--page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--muted:#898781;--grid:#2c2c2a;
+ --axis:#383835;--border:rgba(255,255,255,.10);--s1:#3987e5;--s2:#d95926;--accent:#3987e5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:20px 16px 8px;max-width:1400px;margin:auto}
+h1{font-size:20px;margin:0 0 4px}
+header p{margin:0;color:var(--ink2);max-width:860px}
+.filters{display:flex;flex-wrap:wrap;gap:12px;align-items:end;padding:12px 16px;max-width:1400px;margin:auto}
+.filters label{display:flex;flex-direction:column;font-size:12px;color:var(--ink2);gap:4px}
+select,input[type=range]{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--border);
+ border-radius:6px;padding:6px 8px;min-width:160px}
+input[type=range]{padding:0;min-width:220px;accent-color:var(--accent)}
+.yearval{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,560px),1fr));gap:16px;padding:8px 16px 24px;
+ max-width:1400px;margin:auto}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;min-width:0}
+.card h2{font-size:14px;margin:0 0 2px}
+.card .sub{font-size:12px;color:var(--muted);margin:0 0 6px}
+.plot{width:100%;height:420px}
+.tiles{display:flex;flex-wrap:wrap;gap:12px;padding:0 16px;max-width:1400px;margin:auto}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px;flex:1 1 160px}
+.tile .k{font-size:12px;color:var(--ink2)}.tile .v{font-size:22px;font-weight:600}
+.tablewrap{max-height:420px;overflow:auto}
+table{border-collapse:collapse;width:100%;font-size:12.5px;font-variant-numeric:tabular-nums}
+th,td{padding:5px 8px;border-bottom:1px solid var(--grid);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{position:sticky;top:0;background:var(--surface);color:var(--ink2);cursor:pointer;font-weight:600}
+#countrySel{min-width:240px;height:96px}
+footer{color:var(--muted);font-size:12px;padding:0 16px 24px;max-width:1400px;margin:auto}
+</style></head>
+<body>
+<header>
+ <h1>Healthcare spending &amp; life expectancy explorer, 2000&ndash;2023</h1>
+ <p>World Bank WDI / WHO Global Health Expenditure Database. Choose an indicator, a year and filters; the map, scatter,
+ trends and table update together. Associations only &mdash; not causal effects.</p>
+</header>
+<div class="filters">
+ <label>Map / table indicator<select id="indSel"></select></label>
+ <label>Scatter x-axis<select id="xSel"></select></label>
+ <label>Scatter y-axis<select id="ySel"></select></label>
+ <label>Region<select id="regSel"><option value="">All regions</option></select></label>
+ <label>Income group<select id="incSel"><option value="">All income groups</option></select></label>
+ <label>Year <span class="yearval" id="yearVal"></span><input type="range" id="yearSl" min="2000" max="2023" value="2023"></label>
+</div>
+<div class="tiles" id="tiles"></div>
+<div class="grid">
+ <div class="card"><h2 id="mapTitle"></h2><p class="sub">Hover for values; grey = no data.</p><div id="map" class="plot"></div></div>
+ <div class="card"><h2 id="scTitle"></h2><p class="sub">Each dot is a country; France and the US are ringed. Dashed line: log-linear fit.</p><div id="scatter" class="plot"></div></div>
+ <div class="card"><h2>Trends for selected countries</h2>
+  <p class="sub">Ctrl/Cmd-click to select several countries. Indicator follows the map selector.</p>
+  <select id="countrySel" multiple></select><div id="trend" class="plot" style="height:340px"></div></div>
+ <div class="card"><h2 id="tblTitle"></h2><p class="sub">Click a column header to sort. "vs expected" = life expectancy minus the value predicted by health spending (latest year).</p>
+  <div class="tablewrap"><table id="tbl"></table></div></div>
+</div>
+<footer>Data: World Bank World Development Indicators (retrieved via the World Bank API). Spending per capita in current international $ (PPP); GDP per capita in constant 2021 international $ (PPP).</footer>
+<script>
+const D = __DATA__;
+const V = D.vars, IDX = Object.fromEntries(V.map((v,i)=>[v,i+2]));
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const INC = ["Low income","Lower middle income","Upper middle income","High income"];
+const INC_COL = {"Low income":"#86b6ef","Lower middle income":"#3987e5","Upper middle income":"#1c5cab","High income":"#0d366b","Not classified":"#898781"};
+const $ = id => document.getElementById(id);
+const fmt = (v,k) => v==null ? "–" : (k==="che_pc_ppp"||k==="gdp_pc_ppp") ? "$"+Math.round(v).toLocaleString() : v.toFixed(1);
+
+function opts(sel, items, val){ items.forEach(([v,t])=>{const o=document.createElement("option");o.value=v;o.textContent=t;sel.appendChild(o)}); if(val) sel.value=val; }
+const varItems = V.map(v=>[v,D.labels[v]]);
+opts($("indSel"), varItems, "life_exp"); opts($("xSel"), varItems, "che_pc_ppp"); opts($("ySel"), varItems, "life_exp");
+opts($("regSel"), [...new Set(Object.values(D.countries).map(c=>c[1]))].sort().map(r=>[r,r]));
+opts($("incSel"), INC.map(r=>[r,r]));
+const names = Object.entries(D.countries).sort((a,b)=>a[1][0].localeCompare(b[1][0]));
+opts($("countrySel"), names.map(([k,c])=>[k,c[0]]));
+["FRA","USA"].forEach(k=>$("countrySel").querySelector(`option[value=${k}]`).selected=true);
+
+function layoutBase(extra){ return Object.assign({paper_bgcolor:css("--surface"),plot_bgcolor:css("--surface"),
+  font:{family:"system-ui,-apple-system,Segoe UI,sans-serif",color:css("--ink2"),size:12},
+  margin:{l:56,r:16,t:8,b:48}, hoverlabel:{bgcolor:css("--surface"),bordercolor:css("--axis"),font:{color:css("--ink")}}}, extra); }
+const ax = (title, log) => ({title:{text:title,font:{size:12}}, type:log?"log":"linear", gridcolor:css("--grid"),
+  linecolor:css("--axis"), zeroline:false, tickfont:{color:css("--muted")}});
+
+function filtered(year){
+  const reg=$("regSel").value, inc=$("incSel").value;
+  return D.rows.filter(r=>r[1]===year && (!reg||D.countries[r[0]][1]===reg) && (!inc||D.countries[r[0]][2]===inc));
+}
+function draw(){
+  const year=+$("yearSl").value, ind=$("indSel").value, xv=$("xSel").value, yv=$("ySel").value;
+  $("yearVal").textContent=year;
+  const rows=filtered(year), lab=D.labels[ind];
+  // tiles
+  const vals=rows.map(r=>r[IDX[ind]]).filter(v=>v!=null).sort((a,b)=>a-b);
+  const med=vals.length?vals[Math.floor(vals.length/2)]:null;
+  const get=(k)=>{const r=D.rows.find(r=>r[0]===k&&r[1]===year);return r?r[IDX[ind]]:null};
+  $("tiles").innerHTML=[["Countries with data",vals.length],["Median: "+lab,fmt(med,ind)],
+    ["France",fmt(get("FRA"),ind)],["United States",fmt(get("USA"),ind)]]
+    .map(([k,v])=>`<div class="tile"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+  // map
+  $("mapTitle").textContent=`${lab}, ${year}`;
+  const logm=D.logScale.includes(ind), mr=rows.filter(r=>r[IDX[ind]]!=null);
+  const seq=[[0,"#cde2fb"],[.25,"#86b6ef"],[.5,"#3987e5"],[.75,"#1c5cab"],[1,"#0d366b"]];
+  const rev = ["u5_mort","mat_mort","oop_pct_che"].includes(ind);
+  Plotly.react("map",[{type:"choropleth",locations:mr.map(r=>r[0]),
+    z:mr.map(r=>logm?Math.log10(r[IDX[ind]]):r[IDX[ind]]),
+    text:mr.map(r=>`${D.countries[r[0]][0]}<br>${lab}: ${fmt(r[IDX[ind]],ind)}`),hoverinfo:"text",
+    colorscale: rev ? [[0,"#fde3d6"],[.5,"#eb6834"],[1,"#8a2f0c"]] : seq,
+    marker:{line:{color:css("--surface"),width:.5}},
+    colorbar:{thickness:10,len:.7,tickfont:{color:css("--muted")},
+      ...(logm?{tickvals:[1,2,3,4,5],ticktext:["10","100","1k","10k","100k"]}:{})}}],
+    layoutBase({margin:{l:0,r:0,t:0,b:0},geo:{showframe:false,projection:{type:"natural earth"},bgcolor:css("--surface"),
+      showcoastlines:false,landcolor:css("--grid"),showland:true,showcountries:false}}),{displayModeBar:false,responsive:true});
+  // scatter
+  $("scTitle").textContent=`${D.labels[yv]} vs ${D.labels[xv]}, ${year}`;
+  const sr=rows.filter(r=>r[IDX[xv]]!=null&&r[IDX[yv]]!=null);
+  const traces=[...INC,"Not classified"].map(g=>{const s=sr.filter(r=>D.countries[r[0]][2]===g);return{
+    type:"scatter",mode:"markers",name:g,x:s.map(r=>r[IDX[xv]]),y:s.map(r=>r[IDX[yv]]),
+    text:s.map(r=>D.countries[r[0]][0]),hovertemplate:"<b>%{text}</b><br>x: %{x:,.1f}<br>y: %{y:,.1f}<extra></extra>",
+    marker:{size:9,color:INC_COL[g],line:{color:css("--surface"),width:1}}}}).filter(t=>t.x.length);
+  const logx=D.logScale.includes(xv);
+  if(sr.length>3){ // least-squares fit on (log) x
+    const X=sr.map(r=>logx?Math.log(r[IDX[xv]]):r[IDX[xv]]),Y=sr.map(r=>r[IDX[yv]]),n=X.length;
+    const mx=X.reduce((a,b)=>a+b)/n,my=Y.reduce((a,b)=>a+b)/n;
+    const b=X.reduce((s,x,i)=>s+(x-mx)*(Y[i]-my),0)/X.reduce((s,x)=>s+(x-mx)**2,0),a=my-b*mx;
+    const xs=[Math.min(...X),Math.max(...X)];
+    traces.push({type:"scatter",mode:"lines",name:"Fit",x:xs.map(x=>logx?Math.exp(x):x),y:xs.map(x=>a+b*x),
+      line:{color:css("--ink2"),dash:"dash",width:1.5},hoverinfo:"skip"});
+  }
+  [["FRA","France",css("--s1")],["USA","United States",css("--s2")]].forEach(([k,n,c])=>{
+    const r=sr.find(r=>r[0]===k); if(r) traces.push({type:"scatter",mode:"markers+text",name:n,x:[r[IDX[xv]]],y:[r[IDX[yv]]],
+      text:[n],textposition:"top center",textfont:{color:css("--ink"),size:11},hoverinfo:"skip",
+      marker:{size:16,color:"rgba(0,0,0,0)",line:{color:c,width:2.5}}});});
+  Plotly.react("scatter",traces,layoutBase({xaxis:ax(D.labels[xv],logx),yaxis:ax(D.labels[yv],D.logScale.includes(yv)),
+    legend:{orientation:"h",y:-0.2,font:{size:11}},margin:{l:56,r:16,t:8,b:90}}),{displayModeBar:false,responsive:true});
+  // trends
+  const sel=[...$("countrySel").selectedOptions].map(o=>o.value);
+  const pal=["#2a78d6","#eb6834","#1baf7a","#eda100","#e87ba4","#008300","#6250d6","#e34948"];
+  const tt=sel.slice(0,8).map((k,i)=>{const s=D.rows.filter(r=>r[0]===k&&r[IDX[ind]]!=null);return{type:"scatter",mode:"lines",
+    name:D.countries[k][0],x:s.map(r=>r[1]),y:s.map(r=>r[IDX[ind]]),line:{color:pal[i],width:2},
+    hovertemplate:`${D.countries[k][0]}: %{y:,.1f}<extra></extra>`}});
+  Plotly.react("trend",tt,layoutBase({xaxis:ax("Year"),yaxis:ax(lab,logm),hovermode:"x unified",
+    legend:{orientation:"h",y:-0.25},shapes:[{type:"line",x0:year,x1:year,yref:"paper",y0:0,y1:1,line:{color:css("--axis"),width:1}}]}),
+    {displayModeBar:false,responsive:true});
+  drawTable(rows,year);
+}
+let sortKey="life_exp",sortDir=-1;
+function drawTable(rows,year){
+  $("tblTitle").textContent=`Country table, ${year}`;
+  const cols=[["country","Country"],["income","Income group"],...V.map(v=>[v,D.labels[v].split(" (")[0]]),["resid","vs expected (yrs)"]];
+  const data=rows.map(r=>({country:D.countries[r[0]][0],income:D.countries[r[0]][2],resid:D.residual[r[0]]??null,
+    ...Object.fromEntries(V.map(v=>[v,r[IDX[v]]]))}));
+  data.sort((a,b)=>{const x=a[sortKey],y=b[sortKey];if(x==null)return 1;if(y==null)return -1;
+    return (typeof x==="string"?x.localeCompare(y):x-y)*sortDir});
+  $("tbl").innerHTML="<thead><tr>"+cols.map(([k,t])=>`<th data-k="${k}">${t}${k===sortKey?(sortDir>0?" ▲":" ▼"):""}</th>`).join("")+
+    "</tr></thead><tbody>"+data.map(d=>"<tr>"+cols.map(([k])=>`<td>${typeof d[k]==="string"?d[k]:fmt(d[k],k)}</td>`).join("")+"</tr>").join("")+"</tbody>";
+  $("tbl").querySelectorAll("th").forEach(th=>th.onclick=()=>{const k=th.dataset.k;sortDir=k===sortKey?-sortDir:-1;sortKey=k;drawTable(rows,year)});
+}
+["indSel","xSel","ySel","regSel","incSel","yearSl","countrySel"].forEach(id=>$(id).addEventListener("input",draw));
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",draw);
+draw();
+</script></body></html>

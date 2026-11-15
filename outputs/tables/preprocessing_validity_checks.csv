@@ -1,0 +1,6 @@
+check,n_flagged
+"life_exp outside [20, 95]",2
+"percentage outside [0, 100]",0
+non-positive spending or GDP,0
+gov% + private% > 105,0
+OOP% > private% + 1,0

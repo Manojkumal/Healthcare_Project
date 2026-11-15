@@ -1,0 +1,16 @@
+,(1) Pooled OLS,(2) Country FE,(3) Two-way FE,(4) + GDP,(5) + GDP + OOP,(6) Nonlinear
+log health exp. pc (PPP),5.216***,3.823***,0.543,-0.265,-0.294,
+log health exp. pc (PPP) (SE),(0.192),(0.221),(0.374),(0.439),(0.439),
+log health exp. pc (centred),,,,,,-0.997**
+log health exp. pc (centred) (SE),,,,,,(0.400)
+log health exp. pc² (centred),,,,,,-0.549***
+log health exp. pc² (centred) (SE),,,,,,(0.083)
+log GDP pc (PPP),,,,2.071***,2.119***,1.880***
+log GDP pc (PPP) (SE),,,,(0.730),(0.741),(0.640)
+OOP share (per 10 pp),,,,,-0.252*,-0.136
+OOP share (per 10 pp) (SE),,,,,(0.128),(0.111)
+Country FE,No,Yes,Yes,Yes,Yes,Yes
+Year FE,No,No,Yes,Yes,Yes,Yes
+Observations,"4,404","4,404","4,404","4,404","4,404","4,404"
+Countries,186,186,186,186,186,186
+R² within,0.375,0.433,0.114,0.124,0.158,0.052

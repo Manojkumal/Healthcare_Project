@@ -1,0 +1,258 @@
+type,variable,iso3,country,year,value,robust_z
+cross-sectional,che_pct_gdp,AFG,Afghanistan,2021,21.50844383,4.565004595103944
+cross-sectional,che_pct_gdp,AFG,Afghanistan,2022,23.0881691,5.047222361335419
+cross-sectional,che_pct_gdp,FSM,"Micronesia, Fed. Sts.",2005,17.94844818,5.47646613439808
+cross-sectional,che_pct_gdp,LSO,Lesotho,2019,21.92373085,5.727168710075599
+cross-sectional,che_pct_gdp,MHL,Marshall Islands,2000,13.52467632,4.102452747114102
+cross-sectional,che_pct_gdp,MHL,Marshall Islands,2004,14.15128136,3.799323391063957
+cross-sectional,che_pct_gdp,MHL,Marshall Islands,2005,18.45293236,5.6945582068992735
+cross-sectional,che_pct_gdp,MHL,Marshall Islands,2006,22.29854774,7.01698990289481
+cross-sectional,che_pct_gdp,MHL,Marshall Islands,2007,16.82522392,4.695874449170631
+cross-sectional,che_pct_gdp,MHL,Marshall Islands,2008,18.97963715,5.287990504577947
+cross-sectional,che_pct_gdp,MHL,Marshall Islands,2009,18.7292881,4.619730618497233
+cross-sectional,che_pct_gdp,MHL,Marshall Islands,2010,17.73354912,4.307793897249037
+cross-sectional,che_pct_gdp,NRU,Nauru,2000,18.96671295,6.675121034564008
+cross-sectional,che_pct_gdp,NRU,Nauru,2001,16.22330093,5.103856438305922
+cross-sectional,che_pct_gdp,NRU,Nauru,2002,13.80812454,3.59745142085961
+cross-sectional,che_pct_gdp,NRU,Nauru,2007,24.23069,7.707596960761828
+cross-sectional,che_pct_gdp,NRU,Nauru,2008,23.00409317,6.857811847682725
+cross-sectional,che_pct_gdp,NRU,Nauru,2022,18.34229279,3.598756410901182
+cross-sectional,che_pct_gdp,NRU,Nauru,2023,18.21076012,3.8498559744470136
+cross-sectional,che_pct_gdp,SSD,South Sudan,2017,22.11322403,5.545973173148768
+cross-sectional,che_pct_gdp,TUV,Tuvalu,2000,22.2817421,8.242267848527481
+cross-sectional,che_pct_gdp,TUV,Tuvalu,2001,17.96548271,5.892747311595877
+cross-sectional,che_pct_gdp,TUV,Tuvalu,2003,13.70337105,3.608244253332092
+cross-sectional,che_pct_gdp,TUV,Tuvalu,2010,16.21352577,3.7735072965721757
+cross-sectional,che_pct_gdp,TUV,Tuvalu,2016,18.32539177,4.57483401926025
+cross-sectional,che_pct_gdp,TUV,Tuvalu,2017,24.45763206,6.360730245103914
+cross-sectional,che_pct_gdp,TUV,Tuvalu,2018,18.42199898,4.593744151239077
+cross-sectional,che_pct_gdp,TUV,Tuvalu,2019,22.22294044,5.833088843877235
+cross-sectional,che_pct_gdp,TUV,Tuvalu,2021,18.57411194,3.6641167243873336
+cross-sectional,che_pct_gdp,TUV,Tuvalu,2022,21.28792,4.4977770422158665
+cross-sectional,che_pct_gdp,TUV,Tuvalu,2023,27.08968544,6.728362347716801
+cross-sectional,che_pct_gdp,USA,United States,2000,12.49002075,3.613329693678791
+cross-sectional,che_pct_gdp,USA,United States,2001,13.16817093,3.720439276341144
+cross-sectional,che_pct_gdp,USA,United States,2002,13.99535275,3.67689560400025
+cross-sectional,che_pct_gdp,USA,United States,2003,14.50557518,3.9485281665793064
+cross-sectional,che_pct_gdp,USA,United States,2004,14.55123138,3.970608780220514
+cross-sectional,che_pct_gdp,USA,United States,2005,14.57946205,4.020029646499729
+cross-sectional,che_pct_gdp,USA,United States,2006,14.70878792,3.872026302649969
+cross-sectional,che_pct_gdp,USA,United States,2007,14.91832542,3.9203595689823634
+cross-sectional,che_pct_gdp,USA,United States,2008,15.20723629,3.8164884294292154
+cross-sectional,che_pct_gdp,USA,United States,2009,16.20067596,3.724186806334103
+cross-sectional,che_pct_gdp,USA,United States,2010,16.19722366,3.7677771221404734
+cross-sectional,che_pct_gdp,USA,United States,2012,16.11975479,3.696301411556459
+cross-sectional,che_pct_gdp,USA,United States,2013,15.95227051,3.7791268089420957
+cross-sectional,che_pct_gdp,USA,United States,2014,16.1415844,3.806068568391106
+cross-sectional,che_pct_gdp,USA,United States,2015,16.40155411,3.828577674211318
+cross-sectional,che_pct_gdp,USA,United States,2016,16.69203949,3.96001104383224
+cross-sectional,che_pct_gdp,USA,United States,2017,16.63827515,3.64325263069571
+cross-sectional,che_pct_gdp,USA,United States,2018,16.51312637,3.8916505767218
+cross-sectional,che_pct_gdp,USA,United States,2019,16.54486084,3.823049824177564
+cross-sectional,life_exp,CAF,Central African Republic,2009,14.665,-6.524392431616039
+cross-sectional,life_exp,CAF,Central African Republic,2014,40.265,-3.736526388027092
+cross-sectional,life_exp,CAF,Central African Republic,2019,31.53,-4.863403940470154
+cross-sectional,life_exp,CAF,Central African Republic,2021,40.279,-3.8520739775818953
+cross-sectional,life_exp,CAF,Central African Republic,2022,18.818,-7.064204670069954
+cross-sectional,life_exp,SOM,"Somalia, Fed. Rep.",2011,32.453,-4.713345423143356
+cross-sectional,life_exp,SSD,South Sudan,2015,39.757,-3.654740556687162
+cross-sectional,life_exp,SSD,South Sudan,2016,36.72,-4.131371902490095
+cross-sectional,life_exp,SSD,South Sudan,2017,35.351,-4.558945735756721
+year-on-year jump,log_che_pc_ppp,AGO,Angola,2001,0.8839643223552125,11.808316873603445
+year-on-year jump,log_che_pc_ppp,ARM,Armenia,2002,0.6427670329526691,8.382609229018692
+year-on-year jump,log_che_pc_ppp,GNQ,Equatorial Guinea,2002,0.906275900812993,12.125206607625328
+year-on-year jump,log_che_pc_ppp,IRQ,Iraq,2004,0.6759822148224446,8.854362053146254
+year-on-year jump,log_che_pc_ppp,LBN,Lebanon,2020,-0.6272174903888708,-9.65488904010389
+year-on-year jump,log_che_pc_ppp,LBN,Lebanon,2021,-0.7824756124613002,-11.860008910998202
+year-on-year jump,log_che_pc_ppp,LBR,Liberia,2004,0.9048790486832505,12.105367217924613
+year-on-year jump,log_che_pc_ppp,LSO,Lesotho,2019,0.6429904164900355,8.385781929232389
+year-on-year jump,log_che_pc_ppp,LSO,Lesotho,2020,-0.7302957406521831,-11.118901968243065
+year-on-year jump,log_che_pc_ppp,NGA,Nigeria,2003,0.7662452262231767,10.136361071230858
+year-on-year jump,log_che_pc_ppp,NRU,Nauru,2009,-0.6774719126569506,-10.36864896238325
+year-on-year jump,log_che_pc_ppp,PNG,Papua New Guinea,2015,-0.5394921607716405,-8.408932532724112
+year-on-year jump,log_che_pc_ppp,RWA,Rwanda,2003,0.8145578893748215,10.82254232931548
+year-on-year jump,log_che_pc_ppp,SDN,Sudan,2023,-1.0820470982481685,-16.114801041961783
+year-on-year jump,log_che_pc_ppp,SLE,Sierra Leone,2017,-0.5469691897119144,-8.515128233608335
+year-on-year jump,log_che_pc_ppp,TLS,Timor-Leste,2020,0.6720270653418376,8.798187351329528
+year-on-year jump,log_che_pc_ppp,TON,Tonga,2013,-0.6605620406945683,-10.128479274763736
+year-on-year jump,oop_pct_che,AGO,Angola,2001,17.78639984,10.023605645173452
+year-on-year jump,oop_pct_che,ARM,Armenia,2002,24.354896550000007,13.690597725686613
+year-on-year jump,oop_pct_che,BDI,Burundi,2001,-15.70521927,-8.673747411723062
+year-on-year jump,oop_pct_che,CAF,Central African Republic,2018,-14.743164059999998,-8.136661227190828
+year-on-year jump,oop_pct_che,CAF,Central African Republic,2019,18.885517119999996,10.637209417735157
+year-on-year jump,oop_pct_che,COD,"Congo, Dem. Rep.",2001,18.354629519999996,10.340831005627733
+year-on-year jump,oop_pct_che,COG,"Congo, Rep.",2002,15.637676239999998,8.824038564258869
+year-on-year jump,oop_pct_che,COG,"Congo, Rep.",2020,-16.9818058,-9.386426872835218
+year-on-year jump,oop_pct_che,COM,Comoros,2011,-16.417045599999994,-9.071138417618949
+year-on-year jump,oop_pct_che,ERI,Eritrea,2012,16.078247069999996,9.069995868622824
+year-on-year jump,oop_pct_che,ERI,Eritrea,2016,16.095775600000003,9.079781514186932
+year-on-year jump,oop_pct_che,FJI,Fiji,2022,-16.71094274,-9.23521225862807
+year-on-year jump,oop_pct_che,GAB,Gabon,2010,-24.5712719,-13.623395134028591
+year-on-year jump,oop_pct_che,GHA,Ghana,2017,-15.172889709999996,-8.376563997172328
+year-on-year jump,oop_pct_che,GIN,Guinea,2017,14.835891729999993,8.376426640518082
+year-on-year jump,oop_pct_che,GNB,Guinea-Bissau,2012,22.907855989999995,12.88275896014031
+year-on-year jump,oop_pct_che,GNQ,Equatorial Guinea,2002,28.05380249000001,15.755584493190545
+year-on-year jump,oop_pct_che,IRQ,Iraq,2004,-25.9332428,-14.383742093871914
+year-on-year jump,oop_pct_che,IRQ,Iraq,2012,36.634374609999995,20.545857123213978
+year-on-year jump,oop_pct_che,IRQ,Iraq,2016,-31.939022070000007,-17.73658612999234
+year-on-year jump,oop_pct_che,KHM,Cambodia,2021,-18.577075960000002,-10.277017719001444
+year-on-year jump,oop_pct_che,KHM,Cambodia,2022,19.302879330000003,10.87021005491984
+year-on-year jump,oop_pct_che,LAO,Lao PDR,2011,16.642280579999998,9.384878634897978
+year-on-year jump,oop_pct_che,LAO,Lao PDR,2023,16.15500069,9.112845081938596
+year-on-year jump,oop_pct_che,LBR,Liberia,2004,16.326126099999996,9.208379197421856
+year-on-year jump,oop_pct_che,LBR,Liberia,2007,-22.28897095,-12.349255878351372
+year-on-year jump,oop_pct_che,MMR,Myanmar,2021,-18.47135162,-10.217995033200708
+year-on-year jump,oop_pct_che,NPL,Nepal,2007,18.45965957,10.39946609042264
+year-on-year jump,oop_pct_che,SDN,Sudan,2020,-14.540100100000004,-8.023296789933218
+year-on-year jump,oop_pct_che,SDN,Sudan,2022,-15.73543549,-8.690616209004235
+year-on-year jump,oop_pct_che,SDN,Sudan,2023,14.856681819999999,8.388033115903403
+year-on-year jump,oop_pct_che,SEN,Senegal,2005,-15.575366970000005,-8.601254819162046
+year-on-year jump,oop_pct_che,SLE,Sierra Leone,2014,-27.74438858,-15.394849737696072
+year-on-year jump,oop_pct_che,SSD,South Sudan,2019,16.49218177,9.301083031144918
+year-on-year jump,oop_pct_che,TCD,Chad,2003,-17.319850919999993,-9.575147189313247
+year-on-year jump,life_exp,ABW,Aruba,2022,2.570999999999998,8.182700191326722
+year-on-year jump,life_exp,AFG,Afghanistan,2022,5.200000000000003,17.456128826530986
+year-on-year jump,life_exp,AND,Andorra,2020,-4.679999999999993,-17.39418494897982
+year-on-year jump,life_exp,AND,Andorra,2021,2.9129999999999967,9.389057206632861
+year-on-year jump,life_exp,ARE,United Arab Emirates,2021,-2.8530000000000086,-10.949698788265476
+year-on-year jump,life_exp,ARM,Armenia,2020,-2.8463414634146034,-10.92621173469391
+year-on-year jump,life_exp,ARM,Armenia,2023,2.700000000000003,8.637729591836951
+year-on-year jump,life_exp,AZE,Azerbaijan,2020,-2.9780000000000086,-11.390618750000177
+year-on-year jump,life_exp,AZE,Azerbaijan,2022,3.1260000000000048,10.140384821428821
+year-on-year jump,life_exp,BGD,Bangladesh,2022,3.162000000000006,10.26736977040842
+year-on-year jump,life_exp,BGR,Bulgaria,2021,-2.1439024390244015,-8.448456632653196
+year-on-year jump,life_exp,BGR,Bulgaria,2022,2.948780487804896,9.515267857143144
+year-on-year jump,life_exp,BHR,Bahrain,2022,2.909000000000006,9.374947767857384
+year-on-year jump,life_exp,BHS,"Bahamas, The",2019,-2.6539999999999964,-10.247754209183787
+year-on-year jump,life_exp,BHS,"Bahamas, The",2021,-2.2420000000000044,-8.79448201530624
+year-on-year jump,life_exp,BHS,"Bahamas, The",2022,3.7390000000000043,12.302656313775795
+year-on-year jump,life_exp,BLR,Belarus,2020,-2.0882682926828977,-8.252214987244887
+year-on-year jump,life_exp,BOL,Bolivia,2020,-4.913999999999994,-18.219587117347185
+year-on-year jump,life_exp,BOL,Bolivia,2022,6.006999999999998,20.302708099490204
+year-on-year jump,life_exp,BWA,Botswana,2021,-4.340000000000003,-16.19488265306147
+year-on-year jump,life_exp,BWA,Botswana,2022,5.445999999999998,18.32385931122486
+year-on-year jump,life_exp,CAF,Central African Republic,2009,-35.208,-125.07742168367562
+year-on-year jump,life_exp,CAF,Central African Republic,2010,32.206,112.71600471938982
+year-on-year jump,life_exp,CAF,Central African Republic,2011,3.235999999999997,10.528394387755332
+year-on-year jump,life_exp,CAF,Central African Republic,2014,-9.222000000000001,-33.415452678571974
+year-on-year jump,life_exp,CAF,Central African Republic,2015,11.668999999999997,40.274618686225246
+year-on-year jump,life_exp,CAF,Central African Republic,2017,-5.768000000000001,-21.231952295918692
+year-on-year jump,life_exp,CAF,Central African Republic,2018,7.065999999999995,24.03818201530658
+year-on-year jump,life_exp,CAF,Central African Republic,2019,-20.766999999999996,-74.13882034438899
+year-on-year jump,life_exp,CAF,Central African Republic,2020,19.065999999999995,66.36649834183794
+year-on-year jump,life_exp,CAF,Central African Republic,2021,-10.316999999999993,-37.27791154336793
+year-on-year jump,life_exp,CAF,Central African Republic,2022,-21.461000000000002,-76.58680797194008
+year-on-year jump,life_exp,CAF,Central African Republic,2023,38.59,135.23466900510448
+year-on-year jump,life_exp,COL,Colombia,2020,-2.0360000000000014,-8.06784591836744
+year-on-year jump,life_exp,COL,Colombia,2021,-2.0590000000000117,-8.148975191326661
+year-on-year jump,life_exp,COL,Colombia,2022,3.8100000000000023,12.5530988520411
+year-on-year jump,life_exp,CUB,Cuba,2021,-4.206000000000003,-15.722216454081867
+year-on-year jump,life_exp,CUB,Cuba,2022,4.4280000000000115,14.733007142857497
+year-on-year jump,life_exp,DMA,Dominica,2017,-2.5689999999999884,-9.947928635204162
+year-on-year jump,life_exp,DMA,Dominica,2018,2.7579999999999956,8.842316454081827
+year-on-year jump,life_exp,DZA,Algeria,2020,-2.424999999999997,-9.439988839285817
+year-on-year jump,life_exp,ECU,Ecuador,2020,-5.2819999999999965,-19.517655484694156
+year-on-year jump,life_exp,ECU,Ecuador,2022,3.831000000000003,12.627173405612533
+year-on-year jump,life_exp,FJI,Fiji,2021,-2.0200000000000102,-8.011408163265429
+year-on-year jump,life_exp,GIB,Gibraltar,2021,-2.7959999999999923,-10.748639285714393
+year-on-year jump,life_exp,GIB,Gibraltar,2022,3.242999999999995,10.553085905612468
+year-on-year jump,life_exp,GTM,Guatemala,2021,-2.1129999999999995,-8.339452614796011
+year-on-year jump,life_exp,GTM,Guatemala,2022,3.347999999999999,10.923458673469632
+year-on-year jump,life_exp,GUY,Guyana,2021,-3.4280000000000115,-12.977930612245114
+year-on-year jump,life_exp,GUY,Guyana,2022,5.565000000000012,18.743615114796345
+year-on-year jump,life_exp,HND,Honduras,2022,3.222999999999999,10.482538711734929
+year-on-year jump,life_exp,HTI,Haiti,2010,-16.117000000000004,-57.73659776785812
+year-on-year jump,life_exp,HTI,Haiti,2011,16.004000000000005,55.565722959184725
+year-on-year jump,life_exp,IDN,Indonesia,2022,3.472999999999999,11.364378635204332
+year-on-year jump,life_exp,IND,India,2021,-2.8740000000000094,-11.02377334183691
+year-on-year jump,life_exp,IND,India,2022,4.415999999999997,14.690678826530915
+year-on-year jump,life_exp,IRN,"Iran, Islamic Rep.",2020,-2.7139999999999986,-10.459395790816453
+year-on-year jump,life_exp,IRN,"Iran, Islamic Rep.",2022,3.0470000000000113,9.861723405612514
+year-on-year jump,life_exp,JAM,Jamaica,2021,-2.3670000000000044,-9.235401977040942
+year-on-year jump,life_exp,JOR,Jordan,2022,2.8840000000000003,9.286763775510423
+year-on-year jump,life_exp,KAZ,Kazakhstan,2020,-2.463000000000008,-9.574028507653205
+year-on-year jump,life_exp,KAZ,Kazakhstan,2022,3.372,11.008115306122697
+year-on-year jump,life_exp,KWT,Kuwait,2020,-3.2087804878049013,-12.20466454081657
+year-on-year jump,life_exp,KWT,Kuwait,2023,2.5999999999999943,8.284993622449159
+year-on-year jump,life_exp,LBN,Lebanon,2021,-2.649000000000001,-10.230117410714415
+year-on-year jump,life_exp,LBN,Lebanon,2022,4.352999999999994,14.468455165816616
+year-on-year jump,life_exp,LBR,Liberia,2004,2.9039999999999964,9.357310969387962
+year-on-year jump,life_exp,LBY,Libya,2011,-2.245999999999995,-8.808591454081716
+year-on-year jump,life_exp,LBY,Libya,2023,-5.123000000000005,-18.956805293367644
+year-on-year jump,life_exp,LCA,St. Lucia,2021,-3.189000000000007,-12.134891645408349
+year-on-year jump,life_exp,LCA,St. Lucia,2022,3.551000000000002,11.639512691326797
+year-on-year jump,life_exp,LIE,Liechtenstein,2020,-2.502439024390199,-9.71314413265302
+year-on-year jump,life_exp,LIE,Liechtenstein,2021,2.7439024390243105,8.792589285714213
+year-on-year jump,life_exp,LKA,Sri Lanka,2004,-4.4199999999999875,-16.47707142857162
+year-on-year jump,life_exp,LKA,Sri Lanka,2005,5.050999999999988,16.930552232143167
+year-on-year jump,life_exp,LKA,Sri Lanka,2009,-2.2579999999999956,-8.85091977040825
+year-on-year jump,life_exp,LKA,Sri Lanka,2010,4.164999999999992,13.805311543367617
+year-on-year jump,life_exp,LSO,Lesotho,2022,2.6029999999999944,8.295575701530794
+year-on-year jump,life_exp,LVA,Latvia,2021,-2.204878048780401,-8.663539540816119
+year-on-year jump,life_exp,MDA,Moldova,2022,2.555000000000007,8.12626243622471
+year-on-year jump,life_exp,MDV,Maldives,2022,2.7079999999999984,8.665948469387956
+year-on-year jump,life_exp,MEX,Mexico,2020,-4.081000000000003,-15.281296492347167
+year-on-year jump,life_exp,MEX,Mexico,2022,4.222999999999999,14.009898405612542
+year-on-year jump,life_exp,MKD,North Macedonia,2020,-2.207317073170813,-8.672142857143244
+year-on-year jump,life_exp,MMR,Myanmar,2008,-6.003,-22.06088182397993
+year-on-year jump,life_exp,MMR,Myanmar,2009,6.731000000000002,22.856516517857607
+year-on-year jump,life_exp,MNE,Montenegro,2021,-2.1073170731708046,-8.319406887755452
+year-on-year jump,life_exp,MOZ,Mozambique,2022,2.743000000000002,8.789406058673686
+year-on-year jump,life_exp,MYS,Malaysia,2021,-2.1400000000000006,-8.434691326530709
+year-on-year jump,life_exp,NAM,Namibia,2021,-3.2209999999999965,-12.247767155612395
+year-on-year jump,life_exp,NAM,Namibia,2022,3.3399999999999963,10.8952397959186
+year-on-year jump,life_exp,NAM,Namibia,2023,3.1950000000000074,10.383772640306386
+year-on-year jump,life_exp,NIC,Nicaragua,2020,-2.9979999999999905,-11.461165943877667
+year-on-year jump,life_exp,NIC,Nicaragua,2022,3.9849999999999994,13.170386798469671
+year-on-year jump,life_exp,OMN,Oman,2020,-2.1829999999999927,-8.586367793367419
+year-on-year jump,life_exp,PAN,Panama,2020,-2.1839999999999975,-8.589895153061313
+year-on-year jump,life_exp,PER,Peru,2020,-2.443000000000012,-9.503481313775668
+year-on-year jump,life_exp,PER,Peru,2021,-2.23599999999999,-8.773317857142922
+year-on-year jump,life_exp,PER,Peru,2022,5.2379999999999995,17.59016849489832
+year-on-year jump,life_exp,PHL,Philippines,2021,-3.421999999999997,-12.956766454081798
+year-on-year jump,life_exp,PHL,Philippines,2022,2.796999999999997,8.979883482143059
+year-on-year jump,life_exp,PRK,"Korea, Dem. People's Rep.",2003,8.521999999999998,29.1740177295924
+year-on-year jump,life_exp,PRY,Paraguay,2021,-4.611999999999995,-17.15432448979615
+year-on-year jump,life_exp,PRY,Paraguay,2022,4.2109999999999985,13.96757008928601
+year-on-year jump,life_exp,PSE,West Bank and Gaza,2022,2.7720000000000056,8.89169948979615
+year-on-year jump,life_exp,PSE,West Bank and Gaza,2023,-11.492000000000004,-41.42255918367416
+year-on-year jump,life_exp,PYF,French Polynesia,2021,-2.8880000000000052,-11.07315637755118
+year-on-year jump,life_exp,PYF,French Polynesia,2022,4.287999999999997,14.23917678571458
+year-on-year jump,life_exp,QAT,Qatar,2020,-2.535999999999987,-9.831525765306196
+year-on-year jump,life_exp,RUS,Russian Federation,2022,2.6453658536586033,8.445015306122887
+year-on-year jump,life_exp,SDN,Sudan,2006,3.1739999999999995,10.30969808673493
+year-on-year jump,life_exp,SMR,San Marino,2020,-2.6069999999999993,-10.08196830357155
+year-on-year jump,life_exp,SOM,"Somalia, Fed. Rep.",2010,-3.2010000000000005,-12.177219961734856
+year-on-year jump,life_exp,SOM,"Somalia, Fed. Rep.",2011,-16.446999999999996,-58.90062646683771
+year-on-year jump,life_exp,SOM,"Somalia, Fed. Rep.",2012,16.684999999999995,57.967854910715346
+year-on-year jump,life_exp,SOM,"Somalia, Fed. Rep.",2013,4.878,16.320319005102384
+year-on-year jump,life_exp,SOM,"Somalia, Fed. Rep.",2017,-3.0930000000000035,-11.796265114796086
+year-on-year jump,life_exp,SOM,"Somalia, Fed. Rep.",2018,2.5770000000000053,8.203864349490013
+year-on-year jump,life_exp,SOM,"Somalia, Fed. Rep.",2023,4.885000000000005,16.345010522959544
+year-on-year jump,life_exp,SSD,South Sudan,2003,2.9299999999999997,9.449022321428792
+year-on-year jump,life_exp,SSD,South Sudan,2014,-12.659999999999997,-45.542515306123185
+year-on-year jump,life_exp,SSD,South Sudan,2015,-5.868000000000002,-21.584688265306458
+year-on-year jump,life_exp,SSD,South Sudan,2016,-3.036999999999999,-11.598732971938922
+year-on-year jump,life_exp,SSD,South Sudan,2018,16.554000000000002,57.5057707908174
+year-on-year jump,life_exp,SSD,South Sudan,2019,6.223999999999997,21.06814515306164
+year-on-year jump,life_exp,SUR,Suriname,2021,-3.378,-12.801562627551192
+year-on-year jump,life_exp,SUR,Suriname,2022,4.311000000000007,14.320306058673802
+year-on-year jump,life_exp,SVK,Slovak Republic,2021,-2.2512195121950924,-8.827002551020406
+year-on-year jump,life_exp,SWZ,Eswatini,2022,4.799999999999997,16.04518494897992
+year-on-year jump,life_exp,SYC,Seychelles,2002,-2.165853658536605,-8.525886479592003
+year-on-year jump,life_exp,SYC,Seychelles,2020,3.190243902439093,10.366996173469866
+year-on-year jump,life_exp,SYC,Seychelles,2021,-3.839024390244006,-14.427761479592403
+year-on-year jump,life_exp,SYR,Syrian Arab Republic,2012,-6.052999999999997,-22.2372498086738
+year-on-year jump,life_exp,SYR,Syrian Arab Republic,2015,-2.227000000000004,-8.741571619898073
+year-on-year jump,life_exp,SYR,Syrian Arab Republic,2019,3.5990000000000038,11.80882595663293
+year-on-year jump,life_exp,THA,Thailand,2022,-2.3149999999999977,-9.051979272959281
+year-on-year jump,life_exp,TJK,Tajikistan,2020,-2.3569999999999993,-9.200128380102147
+year-on-year jump,life_exp,TUN,Tunisia,2021,-2.111000000000004,-8.33239789540827
+year-on-year jump,life_exp,TUN,Tunisia,2022,3.1569999999999965,10.249732971938998
+year-on-year jump,life_exp,URY,Uruguay,2021,-2.9470000000000027,-11.281270599489952
+year-on-year jump,life_exp,WSM,Samoa,2009,-2.0450000000000017,-8.09959215561234
+year-on-year jump,life_exp,XKX,Kosovo,2020,-3.036999999999992,-11.598732971938897
+year-on-year jump,life_exp,XKX,Kosovo,2022,2.64200000000001,8.433142729592076
+year-on-year jump,life_exp,ZAF,South Africa,2021,-3.1400000000000077,-11.962051020408348
+year-on-year jump,life_exp,ZAF,South Africa,2022,3.4439999999999955,11.26208520408187
+year-on-year jump,life_exp,ZMB,Zambia,2022,2.915999999999997,9.399639285714494
