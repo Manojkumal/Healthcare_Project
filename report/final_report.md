@@ -80,12 +80,15 @@ Interactive choropleth maps of spending, OOP burden and life expectancy are in `
 | Health exp. per capita (PPP $) | 6,719 | 13,473 | 3,926 |
 | Health exp. % of GDP | 11.5 | 16.7 | 8.0 |
 | Out-of-pocket % of CHE | 9.3 | 10.9 | 16.8 |
-| Government % of CHE | 67.7 | 54.0 | 73.1 |
+| Estimated OOP spending per capita (PPP $) | 622 | 1,472 | 820 |
+| Domestic general government % of CHE | 67.7 | 54.0 | 73.1 |
 | Life expectancy | 82.8 | 78.4 | 81.4 |
 | Under-5 mortality | 4.3 | 6.5 | 4.4 |
 
 - **The US spends twice as much as France per person but lives 4.4 years less.** The gap widened over time: it was 2.5 years in 2000.
-- **France is not "free care".** Its out-of-pocket share (9.3%) is only slightly below the US share (10.9%). The main difference is that most French spending is publicly or compulsorily pooled. France's 2023 government share drop to 67.7% should be checked against WHO GHED revisions.
+- **France is not "free care".** Its out-of-pocket share (9.3%) is only slightly below the US share (10.9%). The World Bank/WHO GHED series used here reports domestic general government health expenditure at 67.7% of current health expenditure in France and 54.0% in the United States in 2023.
+- **Similar out-of-pocket shares do not imply similar amounts.** Combining total health expenditure per capita with the out-of-pocket share gives an estimated $622 PPP per person in France and $1,472 in the United States in 2023, approximately 2.4 times as high in the US. This is a derived national average, not the exact financial burden faced by an individual household, and it does not capture the full burden of taxes, insurance premiums or deductibles.
+- *Data comparability note:* France's value in the World Bank/WHO GHED series falls from 75.3% in 2022 to 67.7% in 2023, and the published value is retained here. A separate OECD/European Observatory measure reports 84.4% financed through government and compulsory schemes in 2023 [7]. These categories are not directly interchangeable, so the GHED value should be interpreted cautiously rather than manually replaced.
 
 **Context indicators** (latest year up to 2023 with data for both countries; descriptive only, not used in any model):
 
@@ -254,7 +257,7 @@ The US gap is therefore reported as **about 5 to 8 years below expectation**, de
 - Distributed-lag or dynamic panel models for delayed effects (e.g. Ray & Linden's GMM approach).
 - Separating public from private spending (the data are already collected: `gov_pct_che`, `pvt_pct_che`).
 - Adding determinants such as education, HIV prevalence, conflict and inequality, and household data on financial hardship.
-- Checking flagged data points, such as France's 2023 government share and the Central African Republic's life-expectancy values.
+- Investigating flagged data points and possible breaks in series, such as the Central African Republic's life-expectancy values.
 
 ## References
 
@@ -264,3 +267,4 @@ The US gap is therefore reported as **about 5 to 8 years below expectation**, de
 [4] World Bank, World Development Indicators, https://databank.worldbank.org/source/world-development-indicators (data last updated 2026-10-08).
 [5] WHO Global Health Observatory, UHC service coverage index, https://www.who.int/data/gho
 [6] B. Iglewicz and D. C. Hoaglin, *How to Detect and Handle Outliers*, ASQC Quality Press, 1993.
+[7] OECD and European Observatory on Health Systems and Policies, *France: Country Health Profile 2025*, https://eurohealthobservatory.who.int/docs/librariesprovider3/country-health-profiles/chp2025pdf/soheu-2025-france-final-web.pdf
