@@ -1,5 +1,6 @@
 model,countries,France: years vs expected,France: rank,United States: years vs expected,United States: rank
-"spending curve, all countries",184,0.48581125573143424,80,-7.964404941187283,177
-"+ GDP + OOP, all countries",184,1.3748191090117956,65,-6.166802439671102,176
-"spending curve, high-income countries only",62,0.69187766932491,26,-5.405441499328134,59
-life expectancy minus high-income median,62,1.397024390243942,,-3.049317073170755,
+"spending line, all countries",184,1.1727589611426907,73,-6.353329728465667,174
+"+ GDP + OOP, all countries",184,1.9527696472764973,56,-4.723700015886749,169
+"spending line, high-income countries only",62,0.679821349239262,24,-7.047870723303532,61
+minus the 10 countries with the closest spending,10,0.5935560975610059,,-4.289024390243938,
+minus the high-income median,62,1.397024390243942,,-3.049317073170755,

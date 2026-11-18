@@ -13,4 +13,4 @@ Country FE,No,Yes,Yes,Yes,Yes,Yes
 Year FE,No,No,Yes,Yes,Yes,Yes
 Observations,"4,404","4,404","4,404","4,404","4,404","4,404"
 Countries,186,186,186,186,186,186
-R² within,0.375,0.433,0.114,0.124,0.158,0.052
+R² (after fixed effects),0.697,0.433,0.006,0.030,0.038,0.169
