@@ -89,7 +89,7 @@ Then choose **Kernel → Restart & Run All**. The full notebook runs in about 2�
 jupyter nbconvert --to notebook --execute --inplace Healthcare_Spending_Life_Expectancy.ipynb
 ```
 
-**Viewing the dashboard:** open `outputs/dashboard.html` in any web browser. The charting library and map shapes are built into the file, so it works **offline**. The separate interactive maps in `outputs/maps/` load Plotly from the internet; static PNG versions are in `outputs/figures/`.
+**Viewing the dashboard:** open `outputs/dashboard.html` in any web browser. The charting library and map shapes are built into the file, so it works **offline**. The separate interactive maps in `outputs/maps/` have the charting library built in but download the country shapes from the internet; static PNG versions are in `outputs/figures/`.
 
 ## Key findings
 
@@ -98,4 +98,4 @@ jupyter nbconvert --to notebook --execute --inplace Healthcare_Spending_Life_Exp
 - **Delayed effects:** spending lagged five years is positively associated with life expectancy (weaker once GDP is controlled for).
 - **Over time:** the association weakened. Much of this is diminishing returns as spending rose; the rest is concentrated in 2020–2023.
 - **Out-of-pocket burden:** high-burden countries live about 4 years less, but this gap is explained by lower national income.
-- **France and the US:** the US spends twice as much per person as France but lives 4.4 years less, about 5–8 years below what its spending predicts depending on the model.
+- **France and the US:** the US spends twice as much per person as France but lives 4.4 years less, about 3–7 years below what its spending predicts depending on the comparison.

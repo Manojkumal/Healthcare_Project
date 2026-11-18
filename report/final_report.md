@@ -39,7 +39,7 @@ Result tables are in `outputs/tables/preprocessing_*.csv`.
 - **Validity checks:** percentages within 0–100, positive spending and GDP, government plus private share ≤ 100%, out-of-pocket share ≤ private share, and life expectancy within 20–95 years. Only 2 records failed: the Central African Republic's life expectancy of 14.7 years (2009) and 18.8 years (2022), both crisis years. Values this low can appear in UN estimates for years with mass deaths, but they fall outside the range set in advance, so they are flagged and **excluded from the analytic sample**.
 - **Outliers flagged, not removed** (257 flags on 235 country-years, in `preprocessing_outliers.csv`):
   - Cross-sectional: robust z-score above 3.5 within each year, a commonly recommended cut-off (Iglewicz & Hoaglin, 1993). These include US health spending as % of GDP (12.5–18.5% over 2000–2023, flagged in 19 years), Tuvalu, the Marshall Islands and Nauru.
-  - Year-on-year jumps: robust z above 8. This cut-off is a judgement call: yearly changes are usually tiny, so 3.5 would flag 852 country-years. The flags coincide with the Central African Republic's crises, Haiti in 2010, Somalia in 2011, and COVID-19 (99 of 146 life-expectancy jump flags fall in 2020–2022).
+  - Year-on-year jumps: robust z above 8. This cut-off is a judgement call: yearly changes are usually tiny, so 3.5 would flag 818 country-years. The flags coincide with the Central African Republic's crises, Haiti in 2010, Somalia in 2011, and COVID-19 (99 of 146 life-expectancy jump flags fall in 2020–2022).
   - A robustness check re-estimates the models without the flagged rows (Section 6).
 - **Analytic sample.** Country-years with all five core variables that passed the validity checks: 4,404 observations from 186 countries (21 low, 46 lower-middle, 57 upper-middle and 62 high income). A balanced sub-panel has 176 countries × 24 years.
 - **Derived variables.** Logs of spending and GDP (skewness of spending falls from 2.3 to near 0; Fig. 2), period (2000–07, 2008–15, 2016–23), and a COVID dummy (2020–21).
@@ -134,7 +134,7 @@ Dependent variable: life expectancy at birth (years). Standard errors are cluste
 3. **GDP per capita takes over the explanatory role.** Adding log GDP makes the spending coefficient indistinguishable from zero (–0.29, p = 0.50). GDP itself is significant: 2.1 years per log unit, so 10% more GDP goes with about 0.2 years (models 4–5). Spending and income rise together, and the data cannot separate them well within countries.
 4. **A higher out-of-pocket share is weakly associated with lower life expectancy.** A 10-percentage-point higher share goes with about 0.25 fewer years, holding spending and GDP fixed (p = 0.05; country-cluster bootstrap 95% CI [–0.51, –0.01]). The upper end of the interval is essentially zero and changes with the random draws, so this is borderline evidence.
 5. **The relationship is nonlinear, with diminishing returns** (model 6). The squared term is strongly significant. The parabola's turning point is about **$220 per capita**, but 71% of country-years lie above it, so the parabola forces a falling slope for most of the data. A flexible check with separate slopes in four spending bands agrees: the within-country slope is clearly positive only below $100 (2.8–3.5 years per log unit), close to zero at $100–500, and negative above $500. The negative slope does not mean spending shortens lives: with year fixed effects every country is compared with the global trend, and poorer countries gained life expectancy much faster, so high spenders look as if they gain less. The turning point is approximate: about $250 without COVID years and about $290 with constant-price spending.
-6. **Fixed effects are preferred over random effects.** The Hausman test gives χ²(26) = 183.0, p < 0.001, so country effects are correlated with the regressors.
+6. **Fixed effects are preferred over random effects.** The Hausman test gives χ²(26) = 183.0, p < 0.001, so country effects are correlated with the regressors. Because the classic Hausman test assumes independent errors, a cluster-robust Mundlak test (country means of the regressors added to a pooled model) was also run; it agrees (χ²(3) = 42.7, p < 0.001).
 
 *Earlier studies.* The studies in our proposal (Jaba et al. 2014; Ray & Linden 2020; Balkhi et al. 2021) used cross-country panel data for 1995–2015. The proposal summarises their data and methods but not their estimates, so we do not claim that our numbers match theirs.
 
@@ -155,8 +155,8 @@ Each check re-estimates the two-way FE model, with and without GDP and OOP contr
 | Excluding flagged outliers | 0.60 | –0.19 |
 | Driscoll-Kraay SEs | 0.54** | –0.29 |
 | Constant 2021 PPP $ spending | 0.71* | –0.10 |
-| Spending lagged 3 years | 0.78** | 0.32 |
-| Spending lagged 5 years | **0.97\*\*\*** | 0.68* |
+| Spending lagged 3 years | 0.79** | 0.34 |
+| Spending lagged 5 years | **0.99\*\*\*** | 0.72* |
 | 5-year averages | 0.54 | –0.44 |
 | Long difference 2000→2019 | 1.02** | –0.49 |
 | Between countries (country means) | **5.37\*\*\*** | **3.64\*\*\*** |
@@ -181,7 +181,7 @@ Each check re-estimates the two-way FE model, with and without GDP and OOP contr
 
 **What depends on choices:**
 - The within-country estimate without controls (0.54) is significant with Driscoll-Kraay errors (p = 0.04) and in the pre-COVID sample, but not with country-clustered errors (p = 0.15).
-- Delayed spending: a 5-year lag gives 0.97 (p = 0.007), but 0.68 (p = 0.08) with controls.
+- Delayed spending: a 5-year lag gives 0.99 (p = 0.007), but 0.72 (p = 0.07) with controls.
 
 ![Forest plot full controls](../outputs/figures/fig10_forest_full_controls.png)
 
@@ -205,26 +205,28 @@ Within income groups, the gap is negative for low-income countries (–3.9 years
 
 ![Permutation](../outputs/figures/fig11_permutation_oop.png)
 ![OOP gap](../outputs/figures/fig13_oop_gap_by_income.png)
+![OOP vs life expectancy, 2016–2023](../outputs/figures/fig14_oop_vs_life_exp_2016_2023.png)
 
 **Bootstrap CIs for cross-sectional slopes by income group.** Life expectancy was regressed on log spending using 2016–23 country means. The slope is positive in every group, and largest among high-income countries: 5.6 [3.9, 7.6], compared with 3.0 [0.3, 6.9] in low-income countries.
 
 ## 8. Who performs better or worse than expected?
 
-A cross-sectional curve of life expectancy on log spending and its square, fitted for 2023, explains 72% of variation (76% with GDP and OOP added). Residuals show over- and under-performers (Fig. 12).
+A cross-sectional line of life expectancy on log spending, fitted for 2023, explains 72% of variation (76% with GDP and OOP added). Residuals show over- and under-performers (Fig. 12). A squared term was not used: it barely improves the fit (R² 0.721 vs 0.715), is not significant at the 5% level (p = 0.057), and bends upward, so at US spending it would expect 86.3 years, more than any country reaches (maximum 85.7).
 
-- **Over-performers.** Bangladesh (+8.6 years), Sri Lanka (+7.7), Lebanon, Vanuatu, Jordan, Kuwait, Oman, Cabo Verde, Peru and Costa Rica.
-- **Under-performers.** Nauru (–14.9), Nigeria (–12.7), Lesotho (–11.3), Chad, Eswatini, South Africa and the **United States**. Several under-performers are affected by HIV/AIDS, conflict or very small-island data issues.
+- **Over-performers.** Sudan (+8.9 years; lowest spending in the sample and a war year, so read with caution), Bangladesh (+8.6), Sri Lanka (+7.3), Vanuatu, Lebanon, Kuwait, Solomon Islands, Jordan, Oman and Peru.
+- **Under-performers.** Nauru (–15.1), Nigeria (–12.8), Lesotho (–11.6), Chad, Eswatini, South Africa and the **United States**. Several under-performers are affected by HIV/AIDS, conflict or very small-island data issues.
 
 **How model-dependent is the US gap?**
 
-| Model | Countries | France (years vs expected) | United States (years vs expected) | US rank |
+| Comparison | Countries | France (years vs expected) | United States (years vs expected) | US rank |
 |---|---|---|---|---|
-| Spending curve, all countries | 184 | +0.5 | –8.0 | 177 |
-| + GDP + OOP, all countries | 184 | +1.4 | –6.2 | 176 |
-| Spending curve, high-income countries only | 62 | +0.7 | –5.4 | 59 |
-| Life expectancy minus high-income median | 62 | +1.4 | –3.1 | — |
+| Spending line, all countries | 184 | +1.2 | –6.4 | 174 |
+| + GDP + OOP, all countries | 184 | +2.0 | –4.7 | 169 |
+| Spending line, high-income countries only | 62 | +0.7 | –7.1 | 61 |
+| Minus the 10 countries with the closest spending | 10 | +0.6 | –4.3 | — |
+| Minus the high-income median | 62 | +1.4 | –3.1 | — |
 
-The US gap is therefore reported as **about 5 to 8 years below expectation**, depending on the model. The US spends more than any other country, so its "expected" value extends the curve beyond the data. A positive or negative residual does not prove good or bad performance, because other factors can explain a gap.
+The US gap is therefore reported as **about 3 to 7 years below expectation**, depending on the comparison. It is not new: against the same line it was –5.6 years in 2000 and has stayed between –6.2 and –6.7 since 2005. The US spends more than any other country, so any fitted line has to be extended beyond the data to give its "expected" value; the two simple comparisons avoid this and give the smallest gaps. A positive or negative residual does not prove good or bad performance, because other factors can explain a gap.
 
 ![Performers](../outputs/figures/fig12_over_under_performers.png)
 
@@ -241,7 +243,7 @@ The US gap is therefore reported as **about 5 to 8 years below expectation**, de
 4. The association has weakened over time. Much of this reflects diminishing returns as spending rose; the rest is concentrated in 2020–2023.
 5. High out-of-pocket reliance coincides with lower life expectancy, but this mostly reflects lower national income.
 
-**Results that depend on the model or period:** the significance of the no-controls within estimate; the lagged-spending effect once GDP is controlled for; the out-of-pocket coefficient in the panel (p = 0.05); the turning point ($220–$290); the size of the US gap (5–8 years); and the out-of-pocket gaps within low- and high-income groups.
+**Results that depend on the model or period:** the significance of the no-controls within estimate; the lagged-spending effect once GDP is controlled for; the out-of-pocket coefficient in the panel (p = 0.05); the turning point ($220–$290); the size of the US gap (3–7 years); and the out-of-pocket gaps within low- and high-income groups.
 
 **Possible explanations requiring further investigation:** catch-up growth of poorer countries behind the negative slope at high spending; COVID-19 and its aftermath behind the recent weakening; financial barriers or coverage gaps behind the out-of-pocket gaps; inequality and lifestyle factors behind the US–France difference.
 
@@ -251,6 +253,7 @@ The US gap is therefore reported as **about 5 to 8 years below expectation**, de
 - This is an observational design. Fixed effects remove only time-invariant country differences and common year shocks; reverse causality and time-varying confounders remain, such as education, HIV, conflict and governance.
 - Life expectancy is partly modelled or interpolated by the UN for data-poor countries, which smooths within-country variation.
 - PPP conversion factors and health accounts are revised over time.
+- Each country keeps its current World Bank income classification for all years, although many countries changed group during 2000–2023, so income-group results describe today's groups.
 - The individual "true cost" of care, covering taxes, premiums and deductibles, is outside the scope of country-level data.
 
 **Future work:**

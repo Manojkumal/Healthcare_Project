@@ -1,3 +1,4 @@
-spending measure,(1) pooled,(2) country FE,(3) two-way FE,(5) + GDP + OOP,turning point ($)
+spending measure / sample,(1) pooled,(2) country FE,(3) two-way FE,(5) + GDP + OOP,turning point ($)
 current intl $ (main),5.216***,3.823***,0.543,-0.294,220
 constant 2021 intl $,5.315***,4.742***,0.710*,-0.100,294
+"current intl $, excluding 2020-21",5.290***,4.165***,0.704*,-0.072,249
