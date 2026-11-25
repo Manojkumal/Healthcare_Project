@@ -87,7 +87,7 @@ Interactive choropleth maps of spending, OOP burden and life expectancy are in `
 
 - **The US spends twice as much as France per person but lives 4.4 years less.** The gap widened over time: it was 2.5 years in 2000.
 - **France is not "free care".** Its out-of-pocket share (9.3%) is only slightly below the US share (10.9%). The World Bank/WHO GHED series used here reports domestic general government health expenditure at 67.7% of current health expenditure in France and 54.0% in the United States in 2023.
-- **Similar out-of-pocket shares do not imply similar amounts.** Combining total health expenditure per capita with the out-of-pocket share gives an estimated $622 PPP per person in France and $1,472 in the United States in 2023, approximately 2.4 times as high in the US. This is a derived national average, not the exact financial burden faced by an individual household, and it does not capture the full burden of taxes, insurance premiums or deductibles.
+- **Similar out-of-pocket shares do not imply similar amounts.** Combining total health expenditure per capita with the out-of-pocket share gives an estimated \$622 PPP per person in France and \$1,472 in the United States in 2023, approximately 2.4 times as high in the US. This is a derived national average, not the exact financial burden faced by an individual household, and it does not capture the full burden of taxes, insurance premiums or deductibles.
 - *Data comparability note:* France's value in the World Bank/WHO GHED series falls from 75.3% in 2022 to 67.7% in 2023, and the published value is retained here. A separate OECD/European Observatory measure reports 84.4% financed through government and compulsory schemes in 2023 [7]. These categories are not directly interchangeable, so the GHED value should be interpreted cautiously rather than manually replaced.
 
 **Context indicators** (latest year up to 2023 with data for both countries; descriptive only, not used in any model):
@@ -133,8 +133,28 @@ Dependent variable: life expectancy at birth (years). Standard errors are cluste
 2. **Within countries over time, most of it is a common global trend.** With country fixed effects only, the coefficient is 3.82 (model 2). Once year fixed effects absorb worldwide trends it falls to 0.54 and is not significant (model 3).
 3. **GDP per capita takes over the explanatory role.** Adding log GDP makes the spending coefficient indistinguishable from zero (–0.29, p = 0.50). GDP itself is significant: 2.1 years per log unit, so 10% more GDP goes with about 0.2 years (models 4–5). Spending and income rise together, and the data cannot separate them well within countries.
 4. **A higher out-of-pocket share is weakly associated with lower life expectancy.** A 10-percentage-point higher share goes with about 0.25 fewer years, holding spending and GDP fixed (p = 0.05; country-cluster bootstrap 95% CI [–0.51, –0.01]). The upper end of the interval is essentially zero and changes with the random draws, so this is borderline evidence.
-5. **The relationship is nonlinear, with diminishing returns** (model 6). The squared term is strongly significant. The parabola's turning point is about **$220 per capita**, but 71% of country-years lie above it, so the parabola forces a falling slope for most of the data. A flexible check with separate slopes in four spending bands agrees: the within-country slope is clearly positive only below $100 (2.8–3.5 years per log unit), close to zero at $100–500, and negative above $500. The negative slope does not mean spending shortens lives: with year fixed effects every country is compared with the global trend, and poorer countries gained life expectancy much faster, so high spenders look as if they gain less. The turning point is approximate: about $250 without COVID years and about $290 with constant-price spending.
+5. **The relationship is nonlinear, with diminishing returns** (model 6). The squared term is strongly significant. The parabola's turning point is about **\$220 per capita**, but 71% of country-years lie above it, so the parabola forces a falling slope for most of the data. A flexible check with separate slopes in four spending bands agrees: the within-country slope is clearly positive only below \$100 (2.8–3.5 years per log unit), close to zero at \$100–500, and negative above \$500. The negative slope does not mean spending shortens lives: with year fixed effects every country is compared with the global trend, and poorer countries gained life expectancy much faster, so high spenders look as if they gain less. The turning point is approximate: about \$250 without COVID years and about \$290 with constant-price spending.
 6. **Fixed effects are preferred over random effects.** The Hausman test gives χ²(26) = 183.0, p < 0.001, so country effects are correlated with the regressors. Because the classic Hausman test assumes independent errors, a cluster-robust Mundlak test (country means of the regressors added to a pooled model) was also run; it agrees (χ²(3) = 42.7, p < 0.001).
+
+**Sensitivity to the two excluded records.** The two Central African Republic records that failed the validity check (life expectancy of 14.7 years in 2009 and 18.8 in 2022) were added back and all six models re-estimated. No spending estimate moves by more than about 0.1, and the confidence intervals are almost unchanged:
+
+| Model | Records excluded (main) | Records included |
+|---|---|---|
+| (1) Pooled OLS | 5.22 [4.84, 5.59] | 5.24 [4.85, 5.63] |
+| (2) Country FE | 3.82 [3.39, 4.26] | 3.78 [3.34, 4.23] |
+| (3) Two-way FE | 0.54 [–0.19, 1.28] | 0.48 [–0.27, 1.23] |
+| (4) + GDP | –0.27 [–1.13, 0.60] | –0.37 [–1.27, 0.54] |
+| (5) + GDP + OOP | –0.29 [–1.16, 0.57] | –0.39 [–1.30, 0.51] |
+| (6) Nonlinear (linear term) | –1.00 [–1.78, –0.21] | –1.08 [–1.90, –0.25] |
+
+Significance does not change in any model. The two values are extreme, but they are 2 of 4,406 observations, and clustering by country limits the weight of a single country.
+
+**Across countries versus within countries.** The models answer two different questions:
+
+- *Across countries:* do countries that spend more live longer than countries that spend less? Yes, strongly. Pooled OLS gives 5.2 per log unit, and the between estimator on country means gives 5.4, or 3.6 with GDP and out-of-pocket share (all p < 0.001). That is about 0.5 years per 10% more spending (0.35 with controls). But this compares countries that also differ in education, sanitation, governance, disease burden and conflict, which the models do not measure.
+- *Within countries over time:* when a country spends more than it usually does, does its life expectancy rise more than the global trend? There is little evidence of this. The two-way estimate is 0.54 (p = 0.15), and −0.29 with GDP and out-of-pocket share (p = 0.50), about 0.05 years per 10% more spending. This comparison removes stable country traits and common year shocks, so it is closer to the policy question, but little variation remains once GDP is controlled for.
+
+*How conflict and disease burden can still affect the results.* Country fixed effects remove only factors that are constant over time, and neither conflict nor disease burden is in the models. Conflict lowers life expectancy directly while emergency aid can raise recorded spending, which pulls the within-country estimate toward zero or below (for example, the Central African Republic and Somalia). Disease burden can act in both directions. Epidemics raise spending needs while lowering life expectancy (COVID-19 in 2020–21), while the donor-funded rollout of HIV treatment in southern Africa raised spending and life expectancy together. Across countries, conflict and high disease burden are concentrated in poorer, low-spending countries, so part of the strong cross-country association may reflect them rather than spending itself. Excluding crisis-year outliers or the COVID years does not change the conclusions (Section 6), but direct measures of conflict and HIV prevalence would be needed to rule these factors out.
 
 *Earlier studies.* The studies in our proposal (Jaba et al. 2014; Ray & Linden 2020; Balkhi et al. 2021) used cross-country panel data for 1995–2015. The proposal summarises their data and methods but not their estimates, so we do not claim that our numbers match theirs.
 
@@ -163,14 +183,14 @@ Each check re-estimates the two-way FE model, with and without GDP and OOP contr
 
 \*p<0.1, \*\*p<0.05, \*\*\*p<0.01
 
-**Alternative spending measures.** Spending as % of GDP is not significant within countries: –0.06 without controls, –0.03 with them. Log current-US$ spending gives the same picture as PPP: 0.56* without controls, –0.13 with them. Spending rebuilt in constant 2021 dollars correlates 0.988 with the main measure; the models with year fixed effects barely change, the country-FE coefficient rises from 3.8 to 4.7, and the turning point moves from $220 to about $290.
+**Alternative spending measures.** Spending as % of GDP is not significant within countries: –0.06 without controls, –0.03 with them. Log current-US$ spending gives the same picture as PPP: 0.56* without controls, –0.13 with them. Spending rebuilt in constant 2021 dollars correlates 0.988 with the main measure; the models with year fixed effects barely change, the country-FE coefficient rises from 3.8 to 4.7, and the turning point moves from \$220 to about \$290.
 
 **Heterogeneity** (two-way FE, no controls):
 - **Income groups.** The association is positive in low-income countries (2.33, p = 0.02) and in high-income countries (0.99, p = 0.02). It is about zero in the two middle-income groups. With controls, the high-income estimate stays marginal (1.00, p = 0.10), and the lower-middle estimate turns negative (−1.14, p = 0.09).
 - **Regions.** It is strongest in East Asia & Pacific (1.45***) and in Middle East & North Africa (2.23*).
 - **Periods.** It is 0.67 in 2000–07, 1.08 in 2008–15 and –0.01 in 2016–23. A period-interaction model with controls confirms a significant decline in the slope (interaction for 2016–23: –0.98, p < 0.001).
 
-**Why did the relationship weaken?** With finer periods, the slope falls step by step from 2008–2015 onwards (–0.42 to –1.28 relative to 2000–2007), so the decline started before COVID. Median spending rose from $376 to $1,111 over the same periods. When the squared spending term is added, the 2008–2015 and 2016–2019 changes become small and not significant; what remains is in 2020–2021 (–0.48, p = 0.03) and 2022–2023 (–0.61, p = 0.006). Much of the weakening is therefore diminishing returns, and the rest is concentrated in the COVID and post-COVID years.
+**Why did the relationship weaken?** With finer periods, the slope falls step by step from 2008–2015 onwards (–0.42 to –1.28 relative to 2000–2007), so the decline started before COVID. Median spending rose from \$376 to \$1,111 over the same periods. When the squared spending term is added, the 2008–2015 and 2016–2019 changes become small and not significant; what remains is in 2020–2021 (–0.48, p = 0.03) and 2022–2023 (–0.61, p = 0.006). Much of the weakening is therefore diminishing returns, and the rest is concentrated in the COVID and post-COVID years.
 
 **Other outcomes (extension).** In two-way FE without controls, 10% more spending is associated with about 1.7% lower under-5 mortality (p < 0.001) and 1.4% lower maternal mortality (p = 0.001). Both associations become insignificant once GDP and the OOP share are controlled for.
 
@@ -243,14 +263,14 @@ The US gap is therefore reported as **about 3 to 7 years below expectation**, de
 4. The association has weakened over time. Much of this reflects diminishing returns as spending rose; the rest is concentrated in 2020–2023.
 5. High out-of-pocket reliance coincides with lower life expectancy, but this mostly reflects lower national income.
 
-**Results that depend on the model or period:** the significance of the no-controls within estimate; the lagged-spending effect once GDP is controlled for; the out-of-pocket coefficient in the panel (p = 0.05); the turning point ($220–$290); the size of the US gap (3–7 years); and the out-of-pocket gaps within low- and high-income groups.
+**Results that depend on the model or period:** the significance of the no-controls within estimate; the lagged-spending effect once GDP is controlled for; the out-of-pocket coefficient in the panel (p = 0.05); the turning point (\$220–\$290); the size of the US gap (3–7 years); and the out-of-pocket gaps within low- and high-income groups.
 
 **Possible explanations requiring further investigation:** catch-up growth of poorer countries behind the negative slope at high spending; COVID-19 and its aftermath behind the recent weakening; financial barriers or coverage gaps behind the out-of-pocket gaps; inequality and lifestyle factors behind the US–France difference.
 
 **Potential policy implications (cautious):** more spending alone is not enough, because in high-spending countries extra spending is not associated with further gains in our data; the largest gains are associated with increases at low spending levels; and our results do not show that reducing direct payments would by itself raise life expectancy.
 
 **Limitations:**
-- This is an observational design. Fixed effects remove only time-invariant country differences and common year shocks; reverse causality and time-varying confounders remain, such as education, HIV, conflict and governance.
+- This is an observational design. Fixed effects remove only time-invariant country differences and common year shocks; reverse causality and time-varying confounders remain, such as education, governance, conflict and disease burden (HIV, COVID-19), which can bias both the across- and within-country estimates (Section 5).
 - Life expectancy is partly modelled or interpolated by the UN for data-poor countries, which smooths within-country variation.
 - PPP conversion factors and health accounts are revised over time.
 - Each country keeps its current World Bank income classification for all years, although many countries changed group during 2000–2023, so income-group results describe today's groups.
